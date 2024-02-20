@@ -22,4 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('employees', EmployeeController::class);
+Route::get('/export-employees', [EmployeeController::class, 'export'])->name('export-employees');
+
 

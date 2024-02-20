@@ -4,8 +4,11 @@
 <div class="container">
     <div class="row mb-3">
         <h1>Employee List</h1>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary">Add Employee</a>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ route('export-employees') }}" class="btn btn-outline-success">Export Employees</a>
         </div>
         <div class="col-md-6 text-right">
             <form action="{{ route('employees.index') }}" method="GET" class="form-inline">

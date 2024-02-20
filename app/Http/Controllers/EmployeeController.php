@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Exports\EmployeesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeeController extends Controller
 {
     public function index(Request $request)
     {
         $search = $request->input('search');
-        if($search) {
-            // search query
+        if ($search) {
             $employees = Employee::where('firstname', 'LIKE', "%$search%")
                 ->orWhere('lastname', 'LIKE', "%$search%")
                 ->orWhere('email', 'LIKE', "%$search%")
@@ -134,5 +135,10 @@ class EmployeeController extends Controller
         $employee->delete();
 
         return redirect()->route('employees.index')->with('success', 'Employee deleted successfully.');
+    }
+
+    public function export()
+    {
+        return Excel::download(new EmployeesExport, 'employees.xlsx');
     }
 }
