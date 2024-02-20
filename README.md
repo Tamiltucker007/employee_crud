@@ -8,7 +8,7 @@ A project summary for an Employee CRUD (Create, Read, Update, Delete) system wou
 ## Project  Setuous Integration
 - git clone
 - composer install
-- npm install and nom run dev
+- npm install and npm run dev
 - Add Database name in .env file
 - php artisan migrate
 - php artisan db:seed (admin User)
